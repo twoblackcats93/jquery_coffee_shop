@@ -50,11 +50,16 @@
     "use strict";
 
     // MyCoffee is an object in jQuery 
-    myCoffee = $('#coffee_image')
+    var myCoffee = $('#coffee_image');
+    var espresso = $('#espresso');
+    var latte =  $('#latte');
+    var hotChocolate =  $('#hot-chocolate');
+    var drinksOrdered = []; 
+    var espressoPrice =   
 
     // attr is a jQuery method, here we are changing the source attribute 
     myCoffee.attr('src', "static/coffee_beans.jpg");
-   
+
     function makeCoffee(drinkType) {
          myCoffee.attr('src',"static/coffee_machine.jpg");
          setTimeout(function() {
@@ -64,11 +69,28 @@
          setTimeout(function() {
                         myCoffee.attr('src', "static/coffee_beans.jpg");
                     }, 4000);
+         
+         drinksOrdered.push(drinkType);
+         console.log(drinksOrdered);
     }
+
+
     // Event listnener, function is an event handler
     myCoffee.on('click', function(evt) {
-                            makeCoffee("latte");
+                            makeCoffee("brew");
                         });
+
+    espresso.on('click', function(evt) {
+                            makeCoffee("espresso");
+                        });
+    latte.on('click', function(evt) {
+                            makeCoffee("latte");
+                        });  
+    hotChocolate.on('click', function(evt) {
+                            makeCoffee("hotChocolate");
+                        });   
+
+
 
     // var myImage = document.getElementById("coffee_image");
     // var myRevenueMessage = document.getElementById("revenue");
