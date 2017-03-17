@@ -55,7 +55,11 @@
     var latte =  $('#latte');
     var hotChocolate =  $('#hot-chocolate');
     var drinksOrdered = []; 
-    var espressoPrice =   
+    var espressoPrice = 3.25
+    var lattePrice = 4.15
+    var hotChocolate = 2.50
+    var brewPrice = 1.00
+
 
     // attr is a jQuery method, here we are changing the source attribute 
     myCoffee.attr('src', "static/coffee_beans.jpg");
@@ -72,6 +76,7 @@
          
          drinksOrdered.push(drinkType);
          console.log(drinksOrdered);
+         revenue()
     }
 
 
@@ -90,7 +95,21 @@
                             makeCoffee("hotChocolate");
                         });   
 
+    var totalPrice = [];
 
+    function revenue(drinksList) {
+
+        for (var i = 0; i < drinksList.length; i++) {
+
+            if (drink in drinksOrdered){
+                drinksOrdered[drink] = brew;
+                totalPrice.push(brewPrice);
+
+
+            }
+        }
+
+    }
 
     // var myImage = document.getElementById("coffee_image");
     // var myRevenueMessage = document.getElementById("revenue");
